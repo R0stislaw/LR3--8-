@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Лабораторна 3</title>
+  </head>
+  <body>
+    <div id="tabs">
+      <div class="tab whiteborder">border-radius</div>
+      <div class="tab">box-shadow</div>
+      <div class="tab">box-sizing</div>
+      <div class="tab">display</div>
+      <div class="tab">font-size</div>
+      <div class="tabContent">
+        <div class="parametrsButtons">
+          Верхній лівий радіус:
+          <input type="range" id="rtl" min="0" max="100" value="0" oninput="generate1()">
+          <input type="text" id="ttl" value="0">
+        </div>
+        <div>
+          Верхній правий радіус:
+          <input type="range" id="rtr" min="0" max="100" value="0" oninput="generate1()">
+          <input type="text" id="ttr" value="0" />
+        </div>
+        <div>
+          Нижній лівий радіус:
+          <input type="range" id="rbr" min="0" max="100" value="0" oninput="generate1()">
+          <input type="text" id="tbr" value="0" />
+        </div>
+        <div>
+          Нижній правий радіус:
+          <input type="range" id="rbl" min="0" max="100" value="0" oninput="generate1()">
+          <input type="text" id="tbl" value="0" />
+        </div>
+        <div class="parametrsButtons2">
+          <div id="block"></div>
+          <div id="contentCode1">
+            Code: <textarea id="completedCode" oninput="applyStylesFromTextarea()" readonly="false"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="tabContent">
+        <div class="parametrsButtons">
+          offset-x:
+          <input type="range" id="offsetX" min="0" max="100" value="0" oninput="generateBoxShadow()">
+          <input type="text" id="offsetXValue" value="0">
+        </div>
+        <div>
+          offset-y:
+          <input type="range" id="offsetY" min="0" max="100" value="0" oninput="generateBoxShadow()">
+          <input type="text" id="offsetYValue" value="0">
+        </div>
+        <div>
+          blur-radius:
+          <input type="range" id="blurRadius" min="0" max="100" value="0" oninput="generateBoxShadow()">
+          <input type="text" id="blurRadiusValue" value="0">
+        </div>
+        <div>
+          spread-radius:
+          <input type="range" id="spreadRadius" min="0" max="100" value="0" oninput="generateBoxShadow()">
+          <input type="text" id="spreadRadiusValue" value="0">
+        </div>
+        <div class="parametrsButtons2">
+          <div id="box"></div>
+          <div id="contentCode2">
+            Code:<textarea id="boxShadowCode" readonly="false"></textarea>
+          </div>
+        </div>
+      </div>   
+
+      <div class="tabContent">
+        <div class="parametrsButtons">
+            box-sizing:
+            <select id="box-sizing" oninput="generateBoxSizing()">
+              <option value="content-box">content-box;</option>
+              <option value="border-box">border-box;</option>
+            </select>
+        </div>
+        <div>
+          width:
+          <input type="range" id="width" min="0" max="100" value="0" oninput="generateBoxSizing()">
+          <input type="text" id="widthValue" value="0">
+        </div>
+        <div>
+          border-color:
+          <input type="range" id="borderColor" min="0" max="100" value="0" oninput="generateBoxSizing()">
+          <input type="text" id="borderColorValue" value="0">
+        </div>
+        <div>
+          padding:
+          <input type="range" id="padding" min="0" max="100" value="0" oninput="generateBoxSizing()">
+          <input type="text" id="paddingValue" value="0">
+        </div>
+        <div class="parametrsButtons2">
+          <div id="icon"></div>
+          <div id="contentCode3">
+            Code:<textarea id="boxSizingCode" readonly="false"></textarea>
+          </div>
+        </div>
+      </div>
+
+<!-- display -->
+<div class="tabContent">
+  <div class="parametrsButtons">
+      display:
+      <input type="radio" id="displayRadio" name="displayType" value="display" onchange="generateDisplay()">
+      <select id="displayValue" onchange="checkRadioState()">
+          <option value="block">block</option>
+          <option value="inline">inline</option>
+          <option value="inline-block">inline-block</option>
+          <option value="none">none</option>
+          <option value="flex">flex</option>
+          <option value="grid">grid</option>
+          <option value="table">table</option>
+          <option value="table-cell">table-cell</option>
+          <option value="list-item">list-item</option>
+      </select>
+  </div>
+  <div>
+      <p id="paragraph1">Paragraph 1: Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </div>
+  <div class="parametrsButtons2">
+      <div>
+          Code: <textarea id="editTextCode1" readonly="false"></textarea>
+      </div>
+  </div>
+</div>
+
+<!-- font-size -->
+<div class="tabContent">
+    <div class="parametrsButtons">
+        font-size (absolute-size):
+        <input type="radio" id="absoluteSizeRadio" name="fontSize" value="absolute-size" onchange="generateFontSize()">
+        <select id="absoluteSize" oninput="generateFontSize()">
+            <option value="xx-small">xx-small</option>
+            <option value="x-small">x-small</option>
+            <option value="small">small</option>
+            <option value="medium">medium</option>
+            <option value="large">large</option>
+            <option value="x-large">x-large</option>
+            <option value="xx-large">xx-large</option>
+            <option value="xxx-large">xxx-large</option>
+        </select>
+    </div>
+    <div>
+        font-size (relative-size):
+        <input type="radio" id="relativeSizeRadio" name="fontSize" value="relative-size" onchange="generateFontSize()">
+        <select id="relativeSize" oninput="generateFontSize()">
+            <option value="smaller">smaller</option>
+            <option value="larger">larger</option>
+        </select>
+    </div>
+    <div>
+        font-size (length):
+        <input type="radio" id="lengthRadio" name="fontSize" value="length" onchange="generateFontSize()">
+        <input type="number" id="widthText" oninput="generateFontSize()">
+        <select id="lengthUnit" oninput="generateFontSize()">
+            <option value="px">px</option>
+            <option value="rem">rem</option>
+        </select>
+    </div>
+    <div>
+        font-size (Global values):
+        <input type="radio" id="globalValuesRadio" name="fontSize" value="global-values" onchange="generateFontSize()">
+        <select id="globalValues" oninput="generateFontSize()">
+            <option value="inherit">inherit</option>
+            <option value="initial">initial</option>
+            <option value="revert">revert</option>
+            <option value="revert-layer">revert-layer</option>
+            <option value="unset">unset</option>
+        </select>
+    </div>
+    <div class="parametrsButtons2">
+        <div id="editText">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div>
+            Code: <textarea id="editTextCode" readonly="false"></textarea>
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
