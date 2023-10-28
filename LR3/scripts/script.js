@@ -176,41 +176,41 @@ function applyStylesFromInput() {
     textarea.value = "border-radius: " + block.style.borderRadius + ';';
 }
 
-function applyStylesFromTextarea() {
-    var textarea = document.getElementById('completedCode');
-    var block = document.getElementById('block');
+// function applyStylesFromTextarea() {
+//     var textarea = document.getElementById('completedCode');
+//     var block = document.getElementById('block');
 
-    var styles = textarea.value;
+//     var styles = textarea.value;
 
-    var styleArray = styles.split(';');
-    var styleObject = {};
+//     var styleArray = styles.split(';');
+//     var styleObject = {};
 
-    styleArray.forEach(function (style) {
-        var [property, value] = style.split(':');
-        if (property && value) {
-            styleObject[property.trim()] = value.trim();
-        }
-    });
+//     styleArray.forEach(function (style) {
+//         var [property, value] = style.split(':');
+//         if (property && value) {
+//             styleObject[property.trim()] = value.trim();
+//         }
+//     });
 
-    if (styleObject['border-radius']) {
-        var borderRadius = styleObject['border-radius'].split(' ');
-        var rtl = borderRadius[0].replace('px', '').trim();
-        var rtr = borderRadius[1].replace('px', '').trim();
-        var rbr = borderRadius[2].replace('px', '').trim();
-        var rbl = borderRadius[3].replace('px', '').trim();
+//     if (styleObject['border-radius']) {
+//         var borderRadius = styleObject['border-radius'].split(' ');
+//         var rtl = borderRadius[0].replace('px', '').trim();
+//         var rtr = borderRadius[1].replace('px', '').trim();
+//         var rbr = borderRadius[2].replace('px', '').trim();
+//         var rbl = borderRadius[3].replace('px', '').trim();
 
-        document.getElementById('rtl').value = rtl;
-        document.getElementById('rtr').value = rtr;
-        document.getElementById('rbr').value = rbr;
-        document.getElementById('rbl').value = rbl;
+//         document.getElementById('rtl').value = rtl;
+//         document.getElementById('rtr').value = rtr;
+//         document.getElementById('rbr').value = rbr;
+//         document.getElementById('rbl').value = rbl;
 
-        document.getElementById('ttl').value = rtl;
-        document.getElementById('ttr').value = rtr;
-        document.getElementById('tbr').value = rbr;
-        document.getElementById('tbl').value = rbl;
-    }
-    block.style.cssText = styles;
+//         document.getElementById('ttl').value = rtl;
+//         document.getElementById('ttr').value = rtr;
+//         document.getElementById('tbr').value = rbr;
+//         document.getElementById('tbl').value = rbl;
+//     }
+//     block.style.cssText = styles;
 
-}
+// }
 
 
