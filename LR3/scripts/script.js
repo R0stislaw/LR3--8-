@@ -1,5 +1,36 @@
 let tab;
 let tabContent;
+let rtl = document.getElementById('rtl');
+let rtr = document.getElementById('rtr');
+let rbr = document.getElementById('rbr');
+let rbl = document.getElementById('rbl');
+let ttl = document.getElementById('ttl');
+let ttr = document.getElementById('ttr');
+let tbr = document.getElementById('tbr');
+let tbl = document.getElementById('tbl');
+let block = document.getElementById('block');
+let textarea = document.getElementById('completedCode');
+
+let offsetX = document.getElementById('offsetX');
+let offsetY = document.getElementById('offsetY');
+let blurRadius = document.getElementById('blurRadius');
+let spreadRadius = document.getElementById('spreadRadius');
+let offsetXValue = document.getElementById('offsetXValue');
+let offsetYValue = document.getElementById('offsetYValue');
+let blurRadiusValue = document.getElementById('blurRadiusValue');
+let spreadRadiusValue = document.getElementById('spreadRadiusValue');
+let box = document.getElementById('box');
+let boxShadowCode = document.getElementById('boxShadowCode');
+
+let boxSizing = document.getElementById('box-sizing');
+let width = document.getElementById('width');
+let borderColor = document.getElementById('borderColor');
+let padding = document.getElementById('padding');
+let widthValue = document.getElementById('widthValue');
+let borderColorValue = document.getElementById('borderColorValue');
+let paddingValue = document.getElementById('paddingValue');
+let icon = document.getElementById('icon');
+let boxSizingCode = document.getElementById('boxSizingCode');
 
 window.onload = function () {
     tabContent = document.getElementsByClassName('tabContent');
@@ -36,78 +67,37 @@ document.getElementById('tabs').onclick = function (event) {
     }
 }
 function generate1() {
-    let rtl = document.getElementById('rtl').value;
-    let rtr = document.getElementById('rtr').value;
-    let rbr = document.getElementById('rbr').value;
-    let rbl = document.getElementById('rbl').value;
-
-    let ttl = document.getElementById('ttl');
-    let ttr = document.getElementById('ttr');
-    let tbr = document.getElementById('tbr');
-    let tbl = document.getElementById('tbl');
-
-    let block = document.getElementById('block');
-    let textarea = document.getElementById('completedCode');
-    ttl.value = rtl;
-    ttr.value = rtr;
-    tbr.value = rbr;
-    tbl.value = rbl;
-
-    block.style.borderRadius = rtl + 'px ' + rtr + 'px ' + rbr + 'px ' + rbl + 'px';
+    ttl.value = rtl.value;
+    ttr.value = rtr.value;
+    tbr.value = rbr.value;
+    tbl.value = rbl.value;
+    block.style.borderRadius = rtl.value + 'px ' + rtr.value + 'px ' + rbr.value + 'px ' + rbl.value + 'px';
     textarea.value = "border-radius: " + block.style.borderRadius+';'
 
 }
 
 function generateBoxShadow() {
-    let offsetX = document.getElementById('offsetX').value;
-    let offsetY = document.getElementById('offsetY').value;
-    let blurRadius = document.getElementById('blurRadius').value;
-    let spreadRadius = document.getElementById('spreadRadius').value;
-    
-    let offsetXValue = document.getElementById('offsetXValue');
-    let offsetYValue = document.getElementById('offsetYValue');
-    let blurRadiusValue = document.getElementById('blurRadiusValue');
-    let spreadRadiusValue = document.getElementById('spreadRadiusValue');
-    
-    let box = document.getElementById('box');
-    let boxShadowCode = document.getElementById('boxShadowCode');
-    
-    offsetXValue.value = offsetX;
-    offsetYValue.value = offsetY;
-    blurRadiusValue.value = blurRadius;
-    spreadRadiusValue.value = spreadRadius;
-    
-    
-    box.style.boxShadow = offsetX + 'px ' + offsetY + 'px ' + blurRadius + 'px ' + spreadRadius + 'px ' + 'yellow';
-    
-    boxShadowCode.value = 'box-shadow:' + box.style.boxShadow+';'
+    offsetXValue.value = offsetX.value;
+    offsetYValue.value = offsetY.value;
+    blurRadiusValue.value = blurRadius.value;
+    spreadRadiusValue.value = spreadRadius.value;
+    box.style.boxShadow = offsetX.value + 'px ' + offsetY.value + 'px ' + blurRadius.value + 'px ' + spreadRadius.value + 'px ' + 'yellow';
+    boxShadowCode.value = 'box-shadow:' + box.style.boxShadow + ';'
 }
 
 function generateBoxSizing() {
-    let boxSizing = document.getElementById('box-sizing').value;
-    let width = document.getElementById('width').value;
-    let borderColor = document.getElementById('borderColor').value;
-    let padding = document.getElementById('padding').value;
+    widthValue.value = width.value;
+    borderColorValue.value = borderColor.value;
+    paddingValue.value = padding.value;
   
-    let widthValue = document.getElementById('widthValue');
-    let borderColorValue = document.getElementById('borderColorValue');
-    let paddingValue = document.getElementById('paddingValue');
+    icon.style.boxSizing = boxSizing.value
+    icon.style.width = width.value + 'px ';
+    icon.style.border = borderColor.value + 'px solid #5B6DCD '; 
+    icon.style.padding = padding.value + 'px ';
   
-    let icon = document.getElementById('icon');
-    let boxSizingCode = document.getElementById('boxSizingCode');
-  
-    icon.style.boxSizing = boxSizing
-    icon.style.width = width + 'px';
-    icon.style.border = borderColor + 'px solid #5B6DCD'; 
-    icon.style.padding = padding + 'px';
-  
-    widthValue.value = width;
-    borderColorValue.value = borderColor;
-    paddingValue.value = padding;
 
-    boxSizingCode.value = 'box-sizing: ' + boxSizing + '; width: ' + width + 'px; border: ' + borderColor + 'px solid #5B6DCD; padding: ' + padding + 'px;';
-  }
-  
+    boxSizingCode.value = 'box-sizing: ' + boxSizing.value + " " + width.value + 'px ' + borderColor.value + 'px solid #5B6DCD '  + padding.value + 'px';
+  } 
 
   function generateFontSize() {
     let selectedRadio = document.querySelector('input[name="fontSize"]:checked');
@@ -158,20 +148,35 @@ function generateDisplay() {
 
 
 // редагування параметрів за допомогою input
-function applyStylesFromInput() {
-    let rtlInput = document.getElementById('rtl');
-    let rtrInput = document.getElementById('rtr');
-    let rbrInput = document.getElementById('rbr');
-    let rblInput = document.getElementById('rbl');
-    let block = document.getElementById('block');
-    let textarea = document.getElementById('completedCode');
-
-    let rtl = rtlInput.value;
-    let rtr = rtrInput.value;
-    let rbr = rbrInput.value;
-    let rbl = rblInput.value;
+function change1byinput() {
+    rtl.value = ttl.value;
+    rtr.value = ttr.value;
+    rbr.value = tbr.value;
+    rbl.value = tbl.value;
 
 
-    block.style.borderRadius = rtl + 'px ' + rtr + 'px ' + rbr + 'px ' + rbl + 'px';
+    block.style.borderRadius = rtl.value  + 'px ' + rtr.value  + 'px ' + rbr.value  + 'px ' + rbl.value  + 'px';
     textarea.value = "border-radius: " + block.style.borderRadius + ';';
+}
+function change2byinput() {
+    offsetX.value = offsetXValue.value;
+    offsetY.value = offsetYValue.value;
+    blurRadius.value = blurRadiusValue.value;
+    spreadRadius.value = spreadRadiusValue.value;
+    box.style.boxShadow = offsetX.value  + 'px ' + offsetY.value  + 'px ' + blurRadius.value  + 'px ' + spreadRadius.value  + 'px yellow' ;
+    boxShadowCode.value = 'box-shadow:' + box.style.boxShadow + ';'
+}
+function change3byinput(){
+
+    width.value =  widthValue.value;
+    borderColor.value = borderColorValue.value;
+    padding.value = paddingValue.value;
+  
+    icon.style.boxSizing = boxSizing.value
+    icon.style.width = widthValue.value + 'px ';
+    icon.style.border = borderColorValue.value + 'px solid #5B6DCD '; 
+    icon.style.padding = paddingValue.value + 'px ';
+  
+
+    boxSizingCode.value = 'box-sizing: ' + boxSizing.value + " " + widthValue.value + 'px ' + borderColorValue.value + 'px solid #5B6DCD '  + paddingValue.value + 'px';
 }
